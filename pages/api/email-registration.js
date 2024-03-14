@@ -40,7 +40,6 @@ export default function handler(req, res) {
                 if (event.emails_registered.includes(email)) {
                     res.status(201).json({ message: 'This email has already been registered' })
                     return event;
-
                 }
                 return {
                     ...event, emails_registered: [...event.emails_registered, email]
@@ -50,7 +49,8 @@ export default function handler(req, res) {
         });
 
         // fs.writeFileSync(filePath, JSON.stringify({ events_categories, allEvents: newAllEvents }))
-        fs.writeFile(__dirname + '/tmp/tmpData.json', JSON.stringify({ events_categories, allEvents: newAllEvents }), err => {
+        // fs.writeFile(__dirname + '/tmp/tmpData.json', JSON.stringify({ events_categories, allEvents: newAllEvents }), err => {
+        fs.writeFile(filePath, JSON.stringify({ events_categories, allEvents: newAllEvents }), err => {
             if (err) {
                 console.log(err.message);
 
