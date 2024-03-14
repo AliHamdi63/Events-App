@@ -49,7 +49,16 @@ export default function handler(req, res) {
             return event;
         });
 
-        fs.writeFileSync(filePath, JSON.stringify({ events_categories, allEvents: newAllEvents }))
+        // fs.writeFileSync(filePath, JSON.stringify({ events_categories, allEvents: newAllEvents }))
+        fs.writeFile(__dirname + '/tmp/tmpData.json', JSON.stringify({ events_categories, allEvents: newAllEvents }), err => {
+            if (err) {
+                console.log(err.message);
+
+                throw err;
+            }
+
+            console.log('data written to file');
+        })
 
         res.status(200).json({ message: `You has been registered successfully with email: ${email} for the event: ${eventID}` })
     }
