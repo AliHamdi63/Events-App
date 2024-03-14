@@ -1,9 +1,14 @@
+import Head from 'next/head'
 import CategoryEvent from '../../../src/components/events/categoryEvent';
 
 
 const EventsCategoryPage = ({ data, pageName }) => {
     return (
         <>
+            <Head>
+                <title>{pageName}</title>
+            </Head>
+
             <CategoryEvent data={data} pageName={pageName} />
         </>
     )

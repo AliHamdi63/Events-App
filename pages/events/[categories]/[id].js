@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import SingleEvent from '../../../src/components/events/SingleEvent';
 
 
@@ -5,6 +6,10 @@ const EventPage = ({ event }) => {
 
     return (
         <>
+            <Head>
+                <title>{event.title}</title>
+            </Head>
+
             <SingleEvent event={event} />
         </>
     )

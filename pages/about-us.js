@@ -1,7 +1,15 @@
+import Head from 'next/head'
+
+
 const AboutUsPage = () => {
+
 
     return (
         <div>
+            <Head>
+                <title>About Us</title>
+            </Head>
+
             <h1> About us Page</h1>
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut

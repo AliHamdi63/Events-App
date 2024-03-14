@@ -1,4 +1,5 @@
 import AllEvents from '../../src/components/events/events-page';
+import Head from 'next/head'
 
 
 const EventsPage = ({ data }) => {
@@ -6,6 +7,10 @@ const EventsPage = ({ data }) => {
 
     return (
         <>
+            <Head>
+                <title>All Events</title>
+            </Head>
+
             <AllEvents data={data} />
         </>
     )
