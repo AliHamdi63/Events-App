@@ -1,20 +1,18 @@
-import Link from 'next/link'
-import Image from 'next/image'
+import Link from 'next/link';
+import Image from 'next/image';
 
-
-export const HomePage = ({ data }) => {
-
-    return (
-        <main>
-            {data.map(cate => {
-                return (
-                    <Link href={`/events/${cate.id}`} key={cate.id}>
-                        <Image src={cate.image} width={200} height={200} alt={cate.title} />
-                        <h2>{cate.title}</h2>
-                        <p>{cate.description}</p>
-                    </Link>
-                )
-            })}
-        </main>
-    );
-} 
+export const HomePage = ({ data }) => (
+    <div className="home_body">
+        {data?.map((ev) => (
+            <Link key={ev.id} href={`/events/${ev.id}`} legacyBehavior>
+                <div className="card">
+                    <Image className="image" width={600} height={400} alt={ev.title} src={ev.image} />
+                    <div className="content">
+                        <h2> {ev.title} </h2>
+                        <p> {ev.description} </p>
+                    </div>
+                </div>
+            </Link>
+        ))}
+    </div>
+);
